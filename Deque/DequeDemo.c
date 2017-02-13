@@ -9,7 +9,7 @@ int main() {
 	Deque dequeue;
 	dequeue.isCreated = 0;
 	while (1) {
-		printf("1. Create deque, 2. Push to front, 3. Push to bottom, 4. Pop front, 5. Pop bottom, 6. Peek front, 7 Peek bottom, 8. Delete deque \n");
+		printf(" 1. Create deque\n 2. Push to front\n 3. Push to bottom\n 4. Pop front\n 5. Pop bottom\n 6. Peek front\n 7 Peek bottom\n 8. Delete deque\n 9. Show Deque \n");
 		scanf_s("%d", &i);
 		switch (i) {
 		case 1:
