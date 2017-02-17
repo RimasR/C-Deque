@@ -2,12 +2,6 @@
 #include <stdio.h>
 #include "Deque.h"
 
-struct DequeNode {
-	int value;
-	DequeElementPointer previous;
-	DequeElementPointer next;
-};
-
 int CreateDeque(Deque * Dequeue)
 {
 	if (Dequeue->isCreated == 0) {
@@ -61,7 +55,7 @@ int DeleteDeque(Deque * Dequeue)
 	return -1;
 }
 
-int PushFirst(Deque * Dequeue, int variable)
+int PushFirst(Deque * Dequeue, nodeVar variable)
 {
 	if (IsCreated(Dequeue)) {
 		struct DequeNode *node = (struct DequeNode*)malloc(sizeof(struct DequeNode));
@@ -82,7 +76,7 @@ int PushFirst(Deque * Dequeue, int variable)
 	return 0;
 }
 
-int PushLast(Deque * Dequeue, int variable)
+int PushLast(Deque * Dequeue, nodeVar variable)
 {
 	if (IsCreated(Dequeue)) {
 		struct DequeNode *node = (struct DequeNode*)malloc(sizeof(struct DequeNode));
@@ -100,10 +94,10 @@ int PushLast(Deque * Dequeue, int variable)
 		}
 		return 1;
 	}
-	return -1;
+	return 0;
 }
 
-int PopFirst(Deque * Dequeue, int * variable)
+int PopFirst(Deque * Dequeue, nodeVar * variable)
 {
 	if (IsCreated(Dequeue)) {
 		struct DequeNode *node;
@@ -129,7 +123,7 @@ int PopFirst(Deque * Dequeue, int * variable)
 	return -1;
 }
 
-int PopLast(Deque * Dequeue, int * variable)
+int PopLast(Deque * Dequeue, nodeVar * variable)
 {
 	if (IsCreated(Dequeue)) {
 		struct DequeNode *node;
@@ -155,7 +149,7 @@ int PopLast(Deque * Dequeue, int * variable)
 	return -1;
 }
 
-int PeekFirst(Deque * Dequeue, int * variable)
+int PeekFirst(Deque * Dequeue, nodeVar * variable)
 {
 	if (IsCreated(Dequeue)) {
 		if (IsEmpty(Dequeue)) {
@@ -170,7 +164,7 @@ int PeekFirst(Deque * Dequeue, int * variable)
 	return -1;
 }
 
-int PeekLast(Deque * Dequeue, int * variable)
+int PeekLast(Deque * Dequeue, nodeVar * variable)
 {
 	if (IsCreated(Dequeue)) {
 		if (IsEmpty(Dequeue)) {
@@ -207,7 +201,7 @@ int IsCreated(Deque * Dequeue)
 int * ToArray(Deque * Dequeue)
 {
 	int count = Count(Dequeue);
-	int * dequeArray = malloc(count * sizeof(int*));
+	nodeVar * dequeArray = malloc(count * sizeof(nodeVar*));
 	if (IsCreated(Dequeue)) {
 		struct DequeNode *node;
 		node = Dequeue->first;
